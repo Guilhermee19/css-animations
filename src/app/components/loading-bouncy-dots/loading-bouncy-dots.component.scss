@@ -1,0 +1,108 @@
+section{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px 0;
+    background: radial-gradient(#21D4FD, #B721FF);
+
+    .wrapper{
+        position: relative;
+        width: 200px;
+        height: 60px;
+        
+        .circle{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            transform-origin: 50%;
+            background: #fff;
+            left: 15%;
+            z-index: 15;
+            transform-origin: 50%;
+            animation: jumping_circle .5s alternate infinite ease;
+
+            &:nth-child(2){
+                left: 45%;
+                animation-delay: .2s;
+            }
+
+            &:nth-child(3){
+                left: auto;
+                right: 15%;
+                animation-delay: .4s;
+            }
+        }
+
+        .shadow{
+            width: 20px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: rgba(0,0,0,.5);
+            position: absolute;
+            top: 62px;
+            transform-origin: 50%;
+            z-index: 5;
+            left: 15%;
+            filter: blur(1px);
+            animation: shadow_scale .5s alternate infinite ease;
+
+            &:nth-child(4){
+                left: 45%;
+                animation-delay: .2s;
+            }
+
+            &:nth-child(5){
+                left: auto;
+                right: 15%;
+                animation-delay: .4s;
+            }
+        }
+
+    }
+    h2{
+        font-family: 'Lato';
+        font-size: 20px;
+        letter-spacing: 12px;
+        color: #fff;
+        text-align: center;
+        margin: 0;
+    }
+}
+
+@keyframes jumping_circle {
+    0%{
+        top: 60px;
+        height: 5px;
+        border-radius: 50px 50px 25px 25px;
+        transform: scale(1.7);
+    }
+    40%{
+        height: 20px;
+        border-radius: 50%;
+        transform: scale(1.2);
+    }
+    100%{
+        top: 0%;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes shadow_scale {
+    0%{
+      transform: scale(1.5);
+    }
+    40%{
+        transform: scale(1);
+        opacity: .7;
+    }
+    100%{
+        transform: scale(.2);
+        opacity: .4;
+    }
+}
